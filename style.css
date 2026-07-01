@@ -42,25 +42,6 @@ body.dark-mode {
   box-sizing: border-box;
 }
 
-:root {
-  --bg-primary: #0f0f0f;
-  --bg-secondary: #181818;
-  --bg-card: #1f1f1f;
-
-  --text-primary: #ffffff;
-  --text-secondary: #b3b3b3;
-
-  --accent: #c9a66b;
-  --accent-hover: #d7b985;
-
-  --border: rgba(255,255,255,.08);
-  --glass: rgba(255,255,255,.04);
-
-  --shadow: 0 10px 30px rgba(0,0,0,.30);
-
-  --transition: all .3s ease;
-}
-
 html {
   scroll-behavior: smooth;
 }
