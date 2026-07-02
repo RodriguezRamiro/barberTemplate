@@ -318,7 +318,7 @@ body.dark-mode .theme-dot {
 
   background:
     linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.65)),
-    url("./assets/hero.webp");
+    url("./assets/backdrops/hero-background.jpeg");
 
   background-size: cover;
   background-position: center;
@@ -365,7 +365,6 @@ body.dark-mode .theme-dot {
 .hero p {
   max-width: 650px;
   margin: auto auto 2rem;
-  color: var(--text-secondary);
 }
 
 .hero-buttons {
@@ -395,6 +394,51 @@ body.dark-mode .theme-dot {
 .stat h3 {
   color: var(--accent);
   font-size: 2rem;
+}
+
+/* =========================
+   HERO TEXT COLORS
+========================= */
+
+.hero h1 {
+  color: #ffffff;
+  text-shadow:
+    0 4px 20px rgba(0,0,0,.45);
+}
+
+.hero p {
+  color: rgba(255,255,255,.88);
+  text-shadow:
+    0 2px 10px rgba(0,0,0,.45);
+}
+
+.hero-tag,
+.hero-proof {
+  color: var(--accent);
+
+  background: rgba(255,255,255,.10);
+
+  backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.hero-proof {
+  color: rgba(255,255,255,.92);
+}
+
+.hero-proof .stars {
+  color: #f5c542;
+}
+
+.hero .stat {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(16px);
+}
+
+.hero .stat p {
+  color: rgba(255,255,255,.85);
 }
 
 /* =========================
