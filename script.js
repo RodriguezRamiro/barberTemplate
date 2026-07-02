@@ -5,26 +5,40 @@
 const navbar = document.querySelector(".navbar");
 const navLinks = document.querySelectorAll(".nav-links a");
 const sections = document.querySelectorAll("section");
-const revealElements = document.querySelectorAll(
-  ".service-card, .team-card, .testimonial-card, .process-step, .gallery-grid img"
-);
+
+const revealElements = document.querySelectorAll(`
+  .service-card,
+  .team-card,
+  .testimonial-card,
+  .process-step,
+  .gallery-item,
+  .about-stat,
+  .stat
+`);
 
 const contactForm = document.querySelector(".contact-form");
-const submitButton = document.querySelector(".contact-form button[type='submit']");
-const footerYear = document.querySelector(".current-year");
+const submitButton = document.querySelector(
+  ".contact-form button[type='submit']"
+);
+
+const footerYear = document.querySelector("#current-year");
+
+const menuButton = document.querySelector("#hamburger");
+const mobileNav = document.querySelector(".nav-links");
+
+const themeToggle = document.querySelector("#themeToggle");
 
 // ======================
 // NAVBAR SCROLL EFFECT
 // ======================
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 80) {
-    navbar.style.background = "rgba(15,15,15,.95)";
-    navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,.35)";
-  } else {
-    navbar.style.background = "rgba(15,15,15,.8)";
-    navbar.style.boxShadow = "none";
-  }
+  navbar.classList.toggle(
+    "scrolled",
+    window.scrollY > 80
+  );
+
+  setActiveLink();
 });
 
 // ======================
@@ -35,14 +49,14 @@ function setActiveLink() {
   let current = "";
 
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 140;
+    const sectionTop = section.offsetTop - 150;
     const sectionHeight = section.offsetHeight;
 
     if (
       window.scrollY >= sectionTop &&
       window.scrollY < sectionTop + sectionHeight
     ) {
-      current = section.getAttribute("id");
+      current = section.id;
     }
   });
 
@@ -55,18 +69,17 @@ function setActiveLink() {
   });
 }
 
-window.addEventListener("scroll", setActiveLink);
-
 // ======================
 // SMOOTH SCROLLING
 // ======================
 
 navLinks.forEach(link => {
-  link.addEventListener("click", event => {
-    event.preventDefault();
+  link.addEventListener("click", e => {
+    e.preventDefault();
 
-    const targetId = link.getAttribute("href");
-    const target = document.querySelector(targetId);
+    const target = document.querySelector(
+      link.getAttribute("href")
+    );
 
     if (!target) return;
 
@@ -74,8 +87,43 @@ navLinks.forEach(link => {
       behavior: "smooth",
       block: "start"
     });
+
+    mobileNav.classList.remove("nav-open");
+    menuButton.classList.remove("active");
   });
 });
+
+// ======================
+// MOBILE MENU
+// ======================
+
+if (menuButton && mobileNav) {
+  menuButton.addEventListener("click", () => {
+    mobileNav.classList.toggle("nav-open");
+    menuButton.classList.toggle("active");
+  });
+}
+
+// ======================
+// THEME TOGGLE
+// ======================
+
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode");
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    localStorage.setItem(
+      "theme",
+      document.body.classList.contains("dark-mode")
+        ? "dark"
+        : "light"
+    );
+  });
+}
 
 // ======================
 // REVEAL ON SCROLL
@@ -106,71 +154,16 @@ revealElements.forEach(element => {
 if (contactForm && submitButton) {
   contactForm.addEventListener("submit", () => {
     submitButton.disabled = true;
-    submitButton.innerText = "Sending Request...";
+    submitButton.textContent =
+      "Sending Request...";
   });
 }
 
 // ======================
-// CURRENT YEAR
+// FOOTER YEAR
 // ======================
 
 if (footerYear) {
-  footerYear.textContent = new Date().getFullYear();
+  footerYear.textContent =
+    new Date().getFullYear();
 }
-
-// ======================
-// MOBILE MENU SUPPORT
-// ======================
-
-const menuButton = document.querySelector(".menu-toggle");
-const mobileNav = document.querySelector(".nav-links");
-
-if (menuButton && mobileNav) {
-  menuButton.addEventListener("click", () => {
-    mobileNav.classList.toggle("open");
-    menuButton.classList.toggle("active");
-  });
-}
-
-// ======================
-//  a RIPPLE EFFECT
-// ======================
-
-const buttons = document.querySelectorAll(".btn");
-
-buttons.forEach(button => {
-  button.addEventListener("click", function (e) {
-    const circle = document.createElement("span");
-
-    const diameter = Math.max(
-      this.clientWidth,
-      this.clientHeight
-    );
-
-    const radius = diameter / 2;
-
-    circle.style.width = circle.style.height = `${diameter}px`;
-
-    circle.style.left = `${
-      e.clientX -
-      this.getBoundingClientRect().left -
-      radius
-    }px`;
-
-    circle.style.top = `${
-      e.clientY -
-      this.getBoundingClientRect().top -
-      radius
-    }px`;
-
-    circle.classList.add("ripple");
-
-    const existingRipple = this.querySelector(".ripple");
-
-    if (existingRipple) {
-      existingRipple.remove();
-    }
-
-    this.appendChild(circle);
-  });
-});
