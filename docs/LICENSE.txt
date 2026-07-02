@@ -1,0 +1,87 @@
+RODRIGUEZTECH STUDIOS TEMPLATE LICENSE
+
+Clipse Grooming — Version 1.0
+
+Copyright (c) 2026 RodriguezTech Studios.
+All rights reserved.
+
+By purchasing, downloading, or using this template, you agree to the following terms.
+
+---
+
+## PERMITTED USES
+
+You may:
+
+• Use this template for personal projects.
+
+• Use this template for commercial projects.
+
+• Customize, modify, and adapt the template to fit your needs.
+
+• Use this template for client work.
+
+• Deliver completed websites built with this template to paying clients.
+
+• Host unlimited deployments of completed websites created using this template.
+
+---
+
+## PROHIBITED USES
+
+You may not:
+
+• Resell the template itself.
+
+• Redistribute the source files.
+
+• Share the original files publicly or privately.
+
+• Upload the template to marketplaces, repositories, or file-sharing websites.
+
+• Claim authorship of the original design or source code.
+
+• Sell modified versions of the template as templates, starter kits, themes, or website packages.
+
+• Include the template in another commercial product intended for redistribution.
+
+---
+
+## OWNERSHIP
+
+RodriguezTech Studios retains ownership of the original design, source code, assets, and intellectual property associated with this template.
+
+Purchasing this product grants a license to use the template, not ownership of the original work.
+
+---
+
+## SUPPORT
+
+Documentation is included with this product.
+
+Support is limited to installation, setup questions, and bug fixes relating to the original unmodified template.
+
+Customization services and feature requests are not included unless otherwise agreed upon separately.
+
+---
+
+## LIABILITY
+
+This template is provided "as is" without warranty of any kind.
+
+RodriguezTech Studios shall not be held liable for any damages, losses, business interruption, or issues resulting from the use or inability to use this product.
+
+---
+
+## CONTACT
+
+RodriguezTech Studios
+
+For support, updates, and additional templates, please visit the RodriguezTech Studios storefront.
+
+---
+
+## VERSION HISTORY
+
+Version 1.0
+Initial Release
