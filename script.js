@@ -9,6 +9,7 @@ const sections = document.querySelectorAll("section");
 const revealElements = document.querySelectorAll(`
   .service-card,
   .team-card,
+  .team-specialties,
   .testimonial-card,
   .process-step,
   .gallery-item,
@@ -58,6 +59,8 @@ function setActiveLink() {
     ) {
       current = section.id;
     }
+
+    setActiveLink();
   });
 
   navLinks.forEach(link => {
@@ -101,6 +104,11 @@ if (menuButton && mobileNav) {
   menuButton.addEventListener("click", () => {
     mobileNav.classList.toggle("nav-open");
     menuButton.classList.toggle("active");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      menuButton.classList.contains("active")
+    );
   });
 }
 
@@ -134,6 +142,7 @@ const observer = new IntersectionObserver(
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
+        observer.unobserve(entry.target);
       }
     });
   },
@@ -155,7 +164,7 @@ if (contactForm && submitButton) {
   contactForm.addEventListener("submit", () => {
     submitButton.disabled = true;
     submitButton.textContent =
-      "Sending Request...";
+      "Submitting Request...";
   });
 }
 
