@@ -570,6 +570,8 @@ body.dark-mode .theme-dot {
 
 .team-card {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .team-content {
@@ -585,6 +587,80 @@ body.dark-mode .theme-dot {
 
 .team-content p {
   color: var(--text-secondary);
+}
+
+.team-card img {
+  object-fit: cover;
+}
+
+/* =========================
+   TEAM ACTIONS
+========================= */
+
+.team-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .5rem;
+}
+
+.team-specialties span {
+  padding: .45rem .9rem;
+
+  border-radius: 999px;
+
+  background: var(--glass);
+  border: 1px solid var(--border);
+
+  color: var(--text-secondary);
+  font-size: .85rem;
+  font-weight: 500;
+}
+
+.team-actions {
+  display: flex;
+  gap: .75rem;
+
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.team-actions a {
+  flex: 1;
+}
+
+.social-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+
+  padding: .9rem 1rem;
+
+  border-radius: 999px;
+
+  background: var(--glass);
+  border: 1px solid var(--border);
+
+  color: var(--text-secondary);
+
+  transition: var(--transition);
+}
+
+.social-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.social-btn i {
+  font-size: 1rem;
+}
+
+.team-role {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: .5px;
 }
 
 /* =========================
